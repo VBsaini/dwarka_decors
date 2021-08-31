@@ -110,7 +110,34 @@ function animate3() {
 animate3();
 //                        intersection observer
 
+let Navdown = (entries, observer) => {
+    entries.forEach((entry) => {
+        if (!document.querySelector(".main").classList.contains("hidden")) {
+            if (!entry.isIntersecting) {
+                document
+                    .querySelector(".color")
+                    .classList.remove("navbar-hidden");
+            }
+            if (entry.isIntersecting) {
+                document.querySelector(".color").classList.add("navbar-hidden");
+            }
+        }
+    });
+};
+
+let options = {
+    rootMargin: "70%",
+    threshold: 1.0,
+};
+
+let observer = new IntersectionObserver(Navdown, options);
+observer.observe(document.querySelector(".images-container"));
+
+//                            loader
 function doneloading() {
     document.querySelector(".hidden").classList.remove("hidden");
     document.querySelector(".loader").classList.remove("loader");
+    document.querySelectorAll(".img").forEach((img) => {
+        img.classList.add("anim");
+    });
 }
