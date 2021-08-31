@@ -1,3 +1,6 @@
+let model1, model2, model3;
+let onetime = true;
+// ##########################################################
 var scene = new THREE.Scene();
 var camera = new THREE.PerspectiveCamera(60, 500 / 500, 0.1, 1000);
 camera.position.set(0, 0, 1000);
@@ -27,6 +30,7 @@ loader.load("./assets/3d_model/heart_in_love/scene.gltf", function (data) {
 function animate() {
     requestAnimationFrame(animate);
     if (obj) {
+        model1 = true;
         obj.rotation.y += 0.02;
     }
     renderer.render(scene, camera);
@@ -60,6 +64,7 @@ loader.load("./assets/3d_model/birthday_cake/scene.gltf", function (data) {
 function animate2() {
     requestAnimationFrame(animate2);
     if (obj2) {
+        model2 = true;
         obj2.rotation.y += 0.01;
     }
     renderer2.render(scene2, camera2);
@@ -93,8 +98,19 @@ loader.load("./assets/3d_model/flower_bouquet/scene.gltf", function (data) {
 function animate3() {
     requestAnimationFrame(animate3);
     if (obj3) {
+        model3 = true;
         obj3.rotation.y += 0.01;
+    }
+    if (model3 & model2 & model1 & onetime) {
+        doneloading();
+        onetime = false;
     }
     renderer3.render(scene3, camera3);
 }
 animate3();
+//                        intersection observer
+
+function doneloading() {
+    document.querySelector(".hidden").classList.remove("hidden");
+    document.querySelector(".loader").classList.remove("loader");
+}
