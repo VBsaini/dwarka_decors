@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Dwarka Decorators & Events</title>
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We"
+            crossorigin="anonymous"
+        />
+        <link rel="stylesheet" href="./assets/css/style.css" />
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-md navbar-light color">
+            <div class="container-fluid" s>
+                <button
+                    class="navbar-toggler"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#navbarNav"
+                    aria-controls="navbarNav"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation"
+                >
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse center" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item first">
+                            <a class="nav-link" href="#">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Gallery</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Our team</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <section class="images-container">
+            <div class="images">
+                <div class="image">
+                    <img
+                        src="./assets/img/tuxpi.com.1630311545.jpg"
+                        alt=""
+                        class="img first"
+                    />
+                </div>
+                <div class="image">
+                    <img
+                        src="./assets/img/tuxpi.com.1630311557.jpg"
+                        alt=""
+                        class="img third"
+                    />
+                </div>
+                <div class="image">
+                    <img
+                        src="./assets/img/tuxpi.com.1630311593.jpg"
+                        alt=""
+                        class="img first"
+                    />
+                </div>
+                <div class="image">
+                    <img
+                        src="./assets/img/tuxpi.com.1630311569.jpg"
+                        alt=""
+                        class="img second"
+                    />
+                </div>
+                <div class="image">
+                    <img
+                        src="./assets/img/tuxpi.com.1630311620.jpg"
+                        alt=""
+                        class="img third"
+                    />
+                </div>
+            </div>
+            <div class="text-background">
+                <div class="welcome">
+                    <h2>welcome to Dwarka Decorators & Events</h2>
+                    <h5><i>one stop for perfect events.</i></h5>
+                    <button class="book-button">
+                        <a href="#contact">Book now</a>
+                    </button>
+                </div>
+            </div>
+        </section>
+        <section class="card">
+            <h2 class="text-center">We Do all kinds of events.</h2>
+            <div class="card-container row">
+                <div class="col">
+                    <canvas class="canvas-wed"></canvas>
+                </div>
+                <div class="col">
+                    <canvas class="canvas-birthday"></canvas>
+                </div>
+                <div class="col">
+                    <canvas class="canvas-cop"></canvas>
+                </div>
+            </div>
+        </section>
+        <script src="https://unpkg.com/three@0.87.1/build/three.js"></script>
+        <script src="https://unpkg.com/three@0.87.1/examples/js/controls/OrbitControls.js"></script>
+        <script
+            type="text/javascript"
+            src="https://unpkg.com/three@0.87.1/examples/js/loaders/GLTFLoader.js"
+        ></script>
+        <script src="./index.js" type="module"></script>
+        <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.1/gsap.min.js"
+            integrity="sha512-UxP+UhJaGRWuMG2YC6LPWYpFQnsSgnor0VUF3BHdD83PS/pOpN+FYbZmrYN+ISX8jnvgVUciqP/fILOXDjZSwg=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"
+        ></script>
+    </body>
+</html>
