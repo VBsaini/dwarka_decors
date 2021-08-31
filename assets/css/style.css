@@ -127,7 +127,47 @@ a:hover {
 canvas {
     width: max-content;
     margin: 10px 20px;
+    box-shadow: 4px 4px 16px black;
+    border: 15px white solid;
+    border-bottom: 100px white solid;
 }
-.row {
-    width: 99.5vw;
+.wed,
+.cop,
+.birthday {
+    position: relative;
+    padding: 0;
+}
+.wed::after,
+.birthday::after,
+.cop::after {
+    content: "Wedding";
+    z-index: 1;
+    width: 500px;
+    height: 100px;
+    color: rgb(204, 73, 73);
+    font-size: 30px;
+    text-align: center;
+    font-weight: 800;
+    position: absolute;
+    top: calc(100% - 100px);
+    left: 10;
+    transition: all 0.3s;
+}
+.birthday::after {
+    content: "Birthday";
+}
+.cop::after {
+    content: "Corporate Events";
+}
+.h2-events {
+    font-size: 40px;
+    color: rgb(204, 73, 73);
+    font-weight: 800;
+    letter-spacing: 2px;
+    width: 40%;
+    margin: 50px auto;
+    margin-top: 100px;
+    padding-bottom: 10px;
+    position: relative;
+    border-bottom: 4px rgb(204, 73, 73) dashed;
 }
