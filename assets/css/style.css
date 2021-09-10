@@ -1,3 +1,12 @@
+@import url("https://fonts.googleapis.com/css2?family=Allura&display=swap");
+html {
+    scroll-behavior: smooth;
+}
+:root {
+    --offset_x: 550px;
+    --offset_z: 300px;
+    --deg: 30deg;
+}
 .center {
     justify-content: center;
     align-content: space-between;
@@ -5,7 +14,6 @@
 li.nav-item {
     font-size: 30px;
     font-weight: 800;
-    font-family: "Times New Roman", Times, serif;
     margin: 0 30px;
 }
 .first {
@@ -13,10 +21,10 @@ li.nav-item {
 }
 a.nav-link {
     color: rgb(27, 27, 27) !important;
-    font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
-        "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+    font-family: "Allura", cursive;
     transition: 0.4s all;
     position: relative;
+    color: white !important;
     padding-bottom: 0;
     padding-top: 0;
 }
@@ -30,8 +38,8 @@ a.nav-link::after {
     left: 0;
     transform: scalex(0);
     transform-origin: center;
-    border-bottom: 3px rgb(27, 27, 27) solid;
-    border-top: 3px rgb(27, 27, 27) solid;
+    border-bottom: 3px rgb(197, 197, 197) solid;
+    border-top: 3px rgb(197, 197, 197) solid;
     transition: 0.2s all;
 }
 
@@ -43,13 +51,15 @@ a.nav-link:hover {
 }
 
 .color {
-    background: rgba(226, 112, 131, 0.7);
+    background: rgba(0, 0, 0, 1);
     position: fixed;
     width: 100%;
     z-index: 30;
     transition: all 0.5s;
 }
 .navbar-hidden {
+    pointer-events: none;
+    opacity: 0;
     transform: translatey(-80px);
 }
 .active {
@@ -57,7 +67,7 @@ a.nav-link:hover {
 }
 .images-container {
     height: 100vh;
-    background-color: pink;
+    background-image: url("../img/close-up-golden-glitter-textured-background_53876-63480.jpg");
 }
 .images {
     display: flex;
@@ -68,6 +78,8 @@ a.nav-link:hover {
     align-items: center;
 }
 .image {
+    height: -webkit-max-content;
+    height: -moz-max-content;
     height: max-content;
     width: 30%;
 }
@@ -89,6 +101,14 @@ a.nav-link:hover {
 }
 .img.anim {
     animation: zoom 0.3s ease-in alternate-reverse;
+}
+@-webkit-keyframes zoom {
+    from {
+        transform: scale(0) inherit;
+    }
+    to {
+        transform: inherit;
+    }
 }
 @keyframes zoom {
     from {
@@ -117,8 +137,9 @@ a.nav-link:hover {
     background-color: rgba(0, 0, 0, 0.7);
 }
 h2,
-h5 {
+h4 {
     margin-bottom: 20px;
+    font-family: "Allura", cursive;
 }
 .book-button {
     background: none;
@@ -127,7 +148,7 @@ h5 {
     position: relative;
     outline: none;
     z-index: 0;
-    border: 1px solid rgb(204, 73, 73);
+    border: 1px solid white;
 }
 .book-button::before {
     content: "";
@@ -141,47 +162,105 @@ h5 {
     left: 0;
     transform: scalex(0);
     transform-origin: center;
-    background: rgb(204, 73, 73);
+    background: white;
     transition: all 0.3s;
 }
 .book-button:hover::before {
     transform: scalex(1);
 }
+
 a {
     color: inherit;
+    transition: color 0.4s;
     text-decoration: none;
 }
 a:hover {
-    color: white;
+    color: black;
+}
+.book-button:hover {
+    color: black !important;
 }
 canvas {
+    width: -webkit-max-content;
+    width: -moz-max-content;
     width: max-content;
     margin: 10px 20px;
     box-shadow: 4px 4px 16px black;
-    border: 15px white solid;
-    border-bottom: 100px white solid;
+    transform: scale(0);
+    border-radius: 3px;
+    background-color: black;
+    transform-origin: center;
+    border: 15px black solid;
+    border-bottom: 100px black solid;
 }
 .wed,
 .cop,
 .birthday {
     position: relative;
+    font-family: "Allura", cursive;
     padding: 0;
 }
 .wed::after,
 .birthday::after,
 .cop::after {
     content: "Wedding";
+    letter-spacing: 4px;
     z-index: 1;
     width: 500px;
+    transform: scale(0);
+    transform-origin: center;
     height: 100px;
-    color: rgb(204, 73, 73);
+    color: white;
     font-size: 30px;
     text-align: center;
     font-weight: 800;
     position: absolute;
     top: calc(100% - 100px);
-    left: 10;
     transition: all 0.3s;
+}
+.wed::before,
+.birthday::before,
+.cop::before {
+    content: "";
+    z-index: 1;
+    width: 200px;
+    transform: scale(0);
+    transform-origin: center;
+    height: 50px;
+    text-align: center;
+    border-bottom: 1px white solid;
+    font-weight: 800;
+    position: absolute;
+    top: calc(100% - 100px);
+    transition: all 0.3s;
+}
+.anim0,
+.anim0::after,
+.anim0::before {
+    -webkit-animation: scale 0.5s forwards;
+    animation: scale 0.5s forwards;
+}
+.anim1,
+.anim1::after,
+.anim1::before {
+    -webkit-animation: scale 0.5s 0.5s forwards;
+    animation: scale 0.5s 0.5s forwards;
+}
+.anim2,
+.anim2::after,
+.anim2::before {
+    -webkit-animation: scale 0.5s 1s forwards;
+    animation: scale 0.5s 1s forwards;
+}
+@-webkit-keyframes scale {
+    100% {
+        transform: scale(1);
+    }
+}
+@keyframes scale {
+    100% {
+        transform: scale(1);
+    }
 }
 .birthday::after {
     content: "Birthday";
@@ -189,18 +268,30 @@ canvas {
 .cop::after {
     content: "Corporate Events";
 }
-.h2-events {
+.h2 {
     font-size: 40px;
-    color: rgb(204, 73, 73);
-    font-weight: 800;
+    text-align: center;
+    color: black;
+    font-weight: 500;
+    z-index: 3;
     letter-spacing: 2px;
     width: 40%;
     margin: 50px auto;
     margin-top: 100px;
     padding-bottom: 10px;
     position: relative;
-    border-bottom: 4px rgb(204, 73, 73) dashed;
+    border-bottom: 2px black solid;
 }
+
+@-webkit-keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
 @keyframes spin {
     0% {
         transform: rotate(0deg);
@@ -230,10 +321,322 @@ canvas {
     position: absolute;
     left: calc(50% - 60px);
     top: calc(50% - 60px);
-    border: 16px solid #f3f3f3; /* Light grey */
-    border-top: 16px solid rgb(204, 73, 73); /* Blue */
+    border: 16px solid #f3f3f3;
+    border-top: 16px solid rgb(204, 73, 73);
     border-radius: 50%;
     width: 120px;
     height: 120px;
+    -webkit-animation: spin 2s linear infinite;
     animation: spin 2s linear infinite;
+}
+/* slider */
+li {
+    list-style: none;
+    display: block;
+}
+.slider {
+    height: 600px;
+    margin: 0 auto;
+    padding: 30px 0;
+    text-align: center;
+}
+#ul-parent {
+    position: relative;
+    perspective: 1000px;
+
+    transform-style: preserve-3d;
+}
+#ul-parent li {
+    position: absolute;
+    top: 0;
+    left: calc(50% - 300px);
+    -webkit-animation-name: slider;
+    animation-name: slider;
+    -webkit-animation-duration: 20s;
+    animation-duration: 20s;
+    -webkit-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
+}
+#ul-parent li:nth-child(1) {
+    transform: translateX(0);
+    -webkit-animation-delay: -20s;
+    animation-delay: -20s;
+}
+#ul-parent li:nth-child(2) {
+    transform: translateX(var(--offset_x))
+        translateZ(calc(0px - var(--offset_z))) rotateY(var(--deg));
+    -webkit-animation-delay: -15s;
+    animation-delay: -15s;
+}
+#ul-parent li:nth-child(3) {
+    transform: translateZ(calc(0px - var(--offset_x)));
+    -webkit-animation-delay: -10s;
+    animation-delay: -10s;
+}
+#ul-parent li:nth-child(4) {
+    transform: translateX(calc(0px - var(--offset_x)))
+        translateZ(calc(0px - var(--offset_z))) rotateY(calc(0deg - var(--deg)));
+    -webkit-animation-delay: -5s;
+    animation-delay: -5s;
+}
+
+@-webkit-keyframes slider {
+    0%,
+    20% {
+        transform: translateX(0);
+    }
+    25%,
+    45% {
+        transform: translateX(var(--offset_x))
+            translateZ(calc(0px - var(--offset_z))) rotateY(var(--deg));
+    }
+    50%,
+    70% {
+        transform: translateZ(calc(50px - var(--offset_x)));
+    }
+    75%,
+    95% {
+        transform: translateX(calc(0px - var(--offset_x)))
+            translateZ(calc(0px - var(--offset_z)))
+            rotateY(calc(0deg - var(--deg)));
+    }
+    97% {
+        transform: translateX(calc(0px - var(--offset_z)))
+            translateZ(calc(0px - var(--offset_z)))
+            rotateY(calc(0deg - var(--deg))) translateX(var(--offset_z));
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+@keyframes slider {
+    0%,
+    20% {
+        transform: translateX(0);
+    }
+    25%,
+    45% {
+        transform: translateX(var(--offset_x))
+            translateZ(calc(0px - var(--offset_z))) rotateY(var(--deg));
+    }
+    50%,
+    70% {
+        transform: translateZ(calc(50px - var(--offset_x)));
+    }
+    75%,
+    95% {
+        transform: translateX(calc(0px - var(--offset_x)))
+            translateZ(calc(0px - var(--offset_z)))
+            rotateY(calc(0deg - var(--deg)));
+    }
+    97% {
+        transform: translateX(calc(0px - var(--offset_z)))
+            translateZ(calc(0px - var(--offset_z)))
+            rotateY(calc(0deg - var(--deg))) translateX(var(--offset_z));
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+.review {
+    margin-top: 120px;
+    padding-top: 50px;
+    padding-bottom: 110px;
+    background-image: url("../img/close-up-golden-glitter-textured-background_53876-63480.jpg");
+    overflow: hidden;
+    position: relative;
+    z-index: 0;
+}
+.review_h2 {
+    margin-top: 0;
+    text-align: center;
+    color: white;
+    border-bottom-color: white;
+}
+.review::after {
+    content: "";
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background-color: rgba(0, 0, 0, 0.7);
+    position: absolute;
+}
+.contact {
+    padding: 20px;
+    border-radius: 4px;
+    color: white;
+    position: relative;
+    background-color: black;
+}
+.contact-sec {
+    margin-bottom: 200px;
+}
+.contact::after {
+    position: absolute;
+    content: "";
+    top: calc(50% - 75px);
+    background-color: white;
+    left: calc(50% - 1px);
+    width: 2px;
+    height: 150px;
+}
+.text {
+    display: flex;
+    align-items: stretch;
+    justify-content: center;
+}
+.text-ul {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+.text-ul li {
+    font-size: 20px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    text-transform: capitalize;
+}
+.link-whatsapp {
+    border-bottom: white 2px solid;
+    transition: all 0.3s;
+}
+.link-whatsapp:hover {
+    border-bottom-color: black;
+    background-color: white;
+    border-radius: 5px;
+    padding: 5px 10px;
+}
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 20%;
+}
+.input {
+    width: 100%;
+    border: 1px solid white;
+    border-color: black;
+    border-bottom-color: white;
+    font-family: monospace;
+    font-size: 20px;
+    background-color: transparent;
+    color: white;
+    padding: 5px;
+    margin-bottom: 10px;
+    outline: none;
+}
+.submit {
+    background: none;
+    color: white;
+    border: 1px solid white;
+    margin-top: 10px;
+    padding: 7px 14px;
+    font-size: 20px;
+    z-index: 1;
+    position: relative;
+    transition: all 0.5s;
+    font-family: monospace;
+}
+.submit::before {
+    content: "";
+    z-index: -1;
+    width: calc(100% + 1px);
+    height: calc(100% + 1px);
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    transform: scalex(0);
+    transform-origin: center;
+    background: white;
+    transition: all 0.3s;
+}
+.submit:hover::before {
+    transform: scalex(1);
+}
+.submit:hover {
+    color: black;
+    letter-spacing: 3px;
+}
+
+.name .input + .input {
+    margin-left: 10px;
+}
+.input::-webkit-input-placeholder {
+    color: white;
+}
+.input::-moz-placeholder {
+    color: white;
+}
+.input:-ms-input-placeholder {
+    color: white;
+}
+.input::-ms-input-placeholder {
+    color: white;
+}
+.input::placeholder {
+    color: white;
+}
+textarea {
+    color: white;
+    padding: 5px;
+    border: 1px solid white;
+    border-color: white;
+    font-family: monospace;
+    background-color: transparent;
+    font-size: 25px;
+    margin-top: 20px;
+}
+textarea::-webkit-input-placeholder {
+    color: white;
+}
+textarea::-moz-placeholder {
+    color: white;
+}
+textarea:-ms-input-placeholder {
+    color: white;
+}
+textarea::-ms-input-placeholder {
+    color: white;
+}
+textarea::placeholder {
+    color: white;
+}
+.name {
+    display: flex;
+}
+
+.footer {
+    width: 100%;
+    padding: 30px;
+    background: #000000;
+    text-align: center;
+    color: #f4f4f4;
+}
+
+.icons a {
+    text-decoration: none;
+    font-size: 2rem;
+    margin: 0.5rem;
+    color: #f4f4f4;
+}
+
+.icons a i {
+    transition: transform 0.3s;
+}
+.icons a:hover i,
+.icons a:focus i {
+    transform: translateY(-10px);
+}
+.company-name {
+    font-size: 1.6rem;
+    margin-top: 0.5rem;
+    margin-bottom: 0;
+}
+.icon {
+    transform: scale(2) !important;
+    margin-right: 20px;
 }

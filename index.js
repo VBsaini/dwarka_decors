@@ -2,11 +2,11 @@ let model1, model2, model3;
 let onetime = true;
 // ##########################################################
 var scene = new THREE.Scene();
-var camera = new THREE.PerspectiveCamera(60, 500 / 500, 0.1, 1000);
+var camera = new THREE.PerspectiveCamera(60, 400 / 500, 0.1, 1000);
 camera.position.set(0, 0, 1000);
 let canvas = document.querySelector(".canvas-wed");
 var renderer = new THREE.WebGLRenderer({ canvas: canvas });
-renderer.setSize(500, 500);
+renderer.setSize(400, 500);
 renderer.setClearColor("#FFC0CB"); //0x );
 scene.background = new THREE.Color("#FFC0CB");
 
@@ -40,12 +40,12 @@ animate();
 // 22222222222222222222222222222222222222222222222222222222222222222222222222222222222222222
 
 var scene2 = new THREE.Scene();
-var camera2 = new THREE.PerspectiveCamera(60, 500 / 500, 0.1, 1000);
+var camera2 = new THREE.PerspectiveCamera(60, 400 / 500, 0.1, 1000);
 camera2.position.set(0, 0.9, 2);
 let canvas2 = document.querySelector(".canvas-birthday");
 var renderer2 = new THREE.WebGLRenderer({ canvas: canvas2 });
-renderer2.setSize(500, 500);
-renderer2.setClearColor("#FFC0CB"); //0x );
+renderer2.setSize(400, 500);
+renderer2.setClearColor("#FFC0CB");
 scene2.background = new THREE.Color("#FFC0CB");
 
 var light2 = new THREE.PointLight(0xffffff, 1.4, 1000);
@@ -74,11 +74,11 @@ animate2();
 // 3333333333333333333333333333333333333333333333333333333333333
 
 var scene3 = new THREE.Scene();
-var camera3 = new THREE.PerspectiveCamera(60, 500 / 500, 0.1, 1000);
+var camera3 = new THREE.PerspectiveCamera(60, 400 / 500, 0.1, 1000);
 camera3.position.set(0, 0, 2);
 let canvas3 = document.querySelector(".canvas-cop");
 var renderer3 = new THREE.WebGLRenderer({ canvas: canvas3 });
-renderer3.setSize(500, 500);
+renderer3.setSize(400, 500);
 renderer3.setClearColor("#FFC0CB"); //0x );
 scene3.background = new THREE.Color("#FFC0CB");
 
@@ -141,3 +141,36 @@ function doneloading() {
         img.classList.add("anim");
     });
 }
+
+let kindShow = (entries, observer) => {
+    entries.forEach((entry) => {
+        if (!document.querySelector(".main").classList.contains("hidden")) {
+            if (entry.isIntersecting) {
+                document.querySelectorAll("canvas").forEach((one, i) => {
+                    one.classList.add(`anim${i}`);
+                });
+                document.querySelectorAll(".canvas-div").forEach((one, i) => {
+                    one.classList.add(`anim${i}`);
+                });
+            }
+            if (!entry.isIntersecting) {
+                document.querySelectorAll("canvas").forEach((one, i) => {
+                    one.classList.remove(`anim${i}`);
+                });
+                document.querySelectorAll(".canvas-div").forEach((one, i) => {
+                    one.classList.remove(`anim${i}`);
+                });
+            }
+        }
+    });
+};
+
+let optionsKind = {
+    rootMargin: "90%",
+    threshold: 1.0,
+};
+
+let observerKind = new IntersectionObserver(kindShow, optionsKind);
+observerKind.observe(document.querySelector(".canvases"));
+
+function formSubmit(params) {}
