@@ -71,7 +71,6 @@ a.nav-link:hover {
 }
 .images {
     display: flex;
-    /* flex-direction: column; */
     overflow: hidden;
     justify-content: space-around;
     height: 100%;
@@ -120,6 +119,9 @@ a.nav-link:hover {
 }
 .text-background {
     position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     z-index: 1;
     top: 0;
     left: 0;
@@ -133,7 +135,7 @@ a.nav-link:hover {
     padding: 20px 0;
     width: 60%;
     border-radius: 5px;
-    margin: 120px auto;
+    margin: auto;
     background-color: rgba(0, 0, 0, 0.7);
 }
 h2,
@@ -180,11 +182,10 @@ a:hover {
 .book-button:hover {
     color: black !important;
 }
-canvas {
+.canvas {
     width: -webkit-max-content;
     width: -moz-max-content;
     width: max-content;
-    margin: 10px 20px;
     box-shadow: 4px 4px 16px black;
     transform: scale(0);
     border-radius: 3px;
@@ -272,15 +273,14 @@ canvas {
     font-size: 40px;
     text-align: center;
     color: black;
+    text-decoration: underline;
+    text-underline-offset: 10px;
+    text-decoration-thickness: 2px;
     font-weight: 500;
     z-index: 3;
     letter-spacing: 2px;
-    width: 40%;
     margin: 50px auto;
     margin-top: 100px;
-    padding-bottom: 10px;
-    position: relative;
-    border-bottom: 2px black solid;
 }
 
 @-webkit-keyframes spin {
@@ -474,6 +474,7 @@ li {
 .contact-sec {
     margin-bottom: 200px;
 }
+
 .contact::after {
     position: absolute;
     content: "";
@@ -639,4 +640,155 @@ textarea::placeholder {
 .icon {
     transform: scale(2) !important;
     margin-right: 20px;
+}
+.canvas-div {
+    overflow: hidden;
+}
+@media screen and (min-width: 1800px) {
+    .h2 {
+        font-size: 55px;
+    }
+    h2,
+    h4 {
+        font-size: 35px;
+    }
+}
+@media screen and (max-width: 1200px) {
+    /* .img.first {
+        transform: rotatez(20deg) scale(1.7) translatex(-60px);
+    }
+    .img.second {
+        transform: rotatez(10deg) scale(1.5);
+    }
+    .img.third {
+        transform: rotatez(-20deg) scale(1.7) translatex(42px);
+    } */
+}
+
+@media screen and (max-width: 1200px) {
+    .img.first {
+        transform: rotatez(20deg) scale(1.7) translatey(-100px);
+        /* transform: rotatez(20deg) scale(1.7) translatex(-60px); */
+    }
+    .img.second {
+        transform: rotatez(10deg) scale(1.5);
+        /* transform: rotatez(10deg) scale(1.5); */
+    }
+    .img.third {
+        transform: rotatez(-20deg) scale(1.7) translatey(50px);
+        /* transform: rotatez(-20deg) scale(1.7) translatex(42px); */
+    }
+    .h2 {
+        font-size: 30px;
+    }
+    .review_h2 {
+        font-size: 40px;
+    }
+    .text-ul li {
+        font-size: 15px;
+    }
+    .input,
+    textarea,
+    .submit {
+        font-size: 15px;
+    }
+    .icon {
+        margin-right: 10px;
+    }
+    .canvas {
+        width: 340px !important;
+        height: 425px !important;
+    }
+}
+@media screen and (max-width: 1084px) {
+    .mt-mine-cop {
+        margin-top: 3rem !important;
+    }
+}
+@media screen and (max-width: 800px) {
+    .contact {
+        max-width: 100%;
+    }
+    h2,
+    h4 {
+        font-size: 17px;
+    }
+    .h2 {
+        font-size: 23px;
+        padding-bottom: 5px;
+    }
+    .book-button {
+        font-size: 10px;
+    }
+    .text-ul li {
+        font-size: 12px;
+    }
+    .images {
+        flex-direction: column;
+    }
+    .img.first {
+        transform: rotatez(20deg) scale(1.7) translatex(-60px);
+    }
+    .img.second {
+        transform: rotatez(10deg) scale(1.5);
+    }
+    .img.third {
+        transform: rotatez(-20deg) scale(1.7) translatex(42px);
+    }
+    .canvas {
+        border-bottom-width: 80px;
+    }
+    .wed::before,
+    .cop::before,
+    .birthday::before {
+        width: 120px;
+        top: calc(100% - 80px);
+    }
+    .wed::after,
+    .cop::after,
+    .birthday::after {
+        font-size: 20px;
+        top: calc(100% - 60px);
+    }
+    .canvas {
+        width: 240px !important;
+        height: 300px !important;
+    }
+}
+@media screen and (max-width: 768px) {
+    .mt-mine-bd {
+        margin-top: 3rem !important;
+    }
+}
+@media screen and (max-width: 600px) {
+    .h2 {
+        text-decoration-thickness: 1.5px;
+    }
+    .text-ul {
+        flex-direction: row;
+    }
+}
+@media screen and (max-width: 500px) {
+    h2,
+    h4 {
+        font-size: 13px;
+        margin-bottom: 10px;
+    }
+    .book-button {
+        font-size: 7px;
+    }
+    .image {
+        transform: scale(1.3);
+    }
+}
+@media screen and (max-width: 400px) {
+    .img.first {
+        transform: rotatez(20deg) scale(1.7) translatex(-30px);
+    }
+    .img.second {
+        transform: rotatez(10deg) scale(1.5);
+    }
+    .img.third {
+        transform: rotatez(-20deg) scale(1.7) translatex(21px);
+    }
 }

@@ -153,14 +153,6 @@ let kindShow = (entries, observer) => {
                     one.classList.add(`anim${i}`);
                 });
             }
-            if (!entry.isIntersecting) {
-                document.querySelectorAll("canvas").forEach((one, i) => {
-                    one.classList.remove(`anim${i}`);
-                });
-                document.querySelectorAll(".canvas-div").forEach((one, i) => {
-                    one.classList.remove(`anim${i}`);
-                });
-            }
         }
     });
 };
