@@ -764,8 +764,23 @@ textarea::placeholder {
     .h2 {
         text-decoration-thickness: 1.5px;
     }
+    .email {
+        font-size: 11px;
+    }
+}
+@media screen and (max-width: 576px) {
+    li {
+        margin: 20px 0;
+    }
+    .contact::after {
+        top: 212px;
+        background-color: white;
+        left: 75px;
+        width: calc(100% - 150px);
+        height: 2px;
+    }
     .text-ul {
-        flex-direction: row;
+        margin-bottom: 40px;
     }
 }
 @media screen and (max-width: 500px) {
@@ -790,5 +805,16 @@ textarea::placeholder {
     }
     .img.third {
         transform: rotatez(-20deg) scale(1.7) translatex(21px);
+    }
+    .contact::after {
+        left: 35px;
+        width: calc(100% - 70px);
+        height: 2px;
+    }
+}
+
+@media screen and (max-width: 300px) {
+    .email {
+        font-size: 9px;
     }
 }
