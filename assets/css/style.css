@@ -7,6 +7,27 @@ html {
     --offset_z: 300px;
     --deg: 30deg;
 }
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: black;
+}
+
+::-webkit-scrollbar-thumb {
+    background-image: linear-gradient(
+            to bottom,
+            rgba(0, 0, 0, 0.4),
+            rgba(0, 0, 0, 0.4)
+        ),
+        url("../img//close-up-golden-glitter-textured-background_53876-63480.jpg");
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-image: url("../img//close-up-golden-glitter-textured-background_53876-63480.jpg");
+}
+
 .center {
     justify-content: center;
     align-content: space-between;
@@ -43,10 +64,12 @@ a.nav-link::after {
     transition: 0.2s all;
 }
 
-a.nav-link:hover::after {
+a.nav-link:hover::after,
+a.nav-link:focus::after {
     transform: scalex(1);
 }
-a.nav-link:hover {
+a.nav-link:hover,
+a.nav-link:focus {
     letter-spacing: 4px;
 }
 
@@ -85,15 +108,12 @@ a.nav-link:hover {
 
 .img.first {
     transform: rotatez(20deg) scale(1.5) translatey(-100px);
-    /* transform: rotatez(20deg) scale(1.7) translatex(-60px); */
 }
 .img.second {
     transform: rotatez(10deg) scale(1.3);
-    /* transform: rotatez(10deg) scale(1.5); */
 }
 .img.third {
     transform: rotatez(-20deg) scale(1.5) translatey(50px);
-    /* transform: rotatez(-20deg) scale(1.7) translatex(42px); */
 }
 .img {
     width: 100%;
@@ -167,7 +187,8 @@ h4 {
     background: white;
     transition: all 0.3s;
 }
-.book-button:hover::before {
+.book-button:hover::before,
+.book-button:focus::before {
     transform: scalex(1);
 }
 
@@ -176,10 +197,12 @@ a {
     transition: color 0.4s;
     text-decoration: none;
 }
-a:hover {
+a:hover,
+a:focus {
     color: black;
 }
-.book-button:hover {
+.book-button:hover,
+.book-button:focus {
     color: black !important;
 }
 .canvas {
@@ -329,7 +352,6 @@ a:hover {
     -webkit-animation: spin 2s linear infinite;
     animation: spin 2s linear infinite;
 }
-/* slider */
 li {
     list-style: none;
     display: block;
@@ -503,7 +525,8 @@ li {
     border-bottom: white 2px solid;
     transition: all 0.3s;
 }
-.link-whatsapp:hover {
+.link-whatsapp:hover,
+.link-whatsapp:focus {
     border-bottom-color: black;
     background-color: white;
     border-radius: 5px;
@@ -555,10 +578,12 @@ li {
     background: white;
     transition: all 0.3s;
 }
-.submit:hover::before {
+.submit:hover::before,
+.submit:focus::before {
     transform: scalex(1);
 }
-.submit:hover {
+.submit:hover,
+.submit:focus {
     color: black;
     letter-spacing: 3px;
 }
@@ -585,7 +610,6 @@ textarea {
     color: white;
     padding: 5px;
     border: 1px solid white;
-    border-color: white;
     font-family: monospace;
     background-color: transparent;
     font-size: 25px;
@@ -654,29 +678,22 @@ textarea::placeholder {
     }
 }
 @media screen and (max-width: 1200px) {
-    /* .img.first {
-        transform: rotatez(20deg) scale(1.7) translatex(-60px);
-    }
-    .img.second {
-        transform: rotatez(10deg) scale(1.5);
-    }
-    .img.third {
-        transform: rotatez(-20deg) scale(1.7) translatex(42px);
-    } */
-}
-
-@media screen and (max-width: 1200px) {
     .img.first {
         transform: rotatez(20deg) scale(1.7) translatey(-100px);
-        /* transform: rotatez(20deg) scale(1.7) translatex(-60px); */
+    }
+    .slider_img {
+        transform: scale(0.95);
+    }
+    :root {
+        --offset_x: 225px;
+        --offset_z: 150px;
+        --deg: 15deg;
     }
     .img.second {
         transform: rotatez(10deg) scale(1.5);
-        /* transform: rotatez(10deg) scale(1.5); */
     }
     .img.third {
         transform: rotatez(-20deg) scale(1.7) translatey(50px);
-        /* transform: rotatez(-20deg) scale(1.7) translatex(42px); */
     }
     .h2 {
         font-size: 30px;
@@ -704,10 +721,27 @@ textarea::placeholder {
     .mt-mine-cop {
         margin-top: 3rem !important;
     }
+    .slider_img {
+        transform: scale(0.8);
+    }
+}
+@media screen and (max-width: 860px) {
+    #ul-parent li {
+        left: calc(50% - 310.5px);
+    }
 }
 @media screen and (max-width: 800px) {
     .contact {
         max-width: 100%;
+    }
+    .slider {
+        padding: 0;
+    }
+    .review {
+        padding: 20px 0 0 0;
+    }
+    .slider_img {
+        transform: scale(0.6);
     }
     h2,
     h4 {
@@ -754,10 +788,33 @@ textarea::placeholder {
         width: 240px !important;
         height: 300px !important;
     }
+    .review_h2 {
+        margin: 0;
+    }
 }
 @media screen and (max-width: 768px) {
     .mt-mine-bd {
         margin-top: 3rem !important;
+    }
+    .company-name {
+        font-size: 20px;
+    }
+    .icons a i {
+        font-size: 25px;
+    }
+}
+@media screen and (max-width: 684px) {
+    .slider_img {
+        transform: scale(0.5);
+        margin-top: 50px;
+    }
+    .slider {
+        margin-top: -150px;
+    }
+    :root {
+        --offset_x: 112.5px;
+        --offset_z: 75px;
+        --deg: 7.5deg;
     }
 }
 @media screen and (max-width: 600px) {
@@ -782,8 +839,18 @@ textarea::placeholder {
     .text-ul {
         margin-bottom: 40px;
     }
+    .company-name {
+        font-size: 15px;
+        margin-top: 0;
+    }
+    .icons a i {
+        font-size: 20px;
+    }
 }
 @media screen and (max-width: 500px) {
+    .nav-link {
+        font-size: 20px;
+    }
     h2,
     h4 {
         font-size: 13px;
@@ -795,7 +862,46 @@ textarea::placeholder {
     .image {
         transform: scale(1.3);
     }
+    .company-name {
+        font-size: 12px;
+    }
+    .icons a i {
+        font-size: 17px;
+    }
+    .footer {
+        padding: 0 0 20px 0;
+    }
+    .slider_img {
+        transform: scale(0.4);
+        margin-top: 50px;
+    }
+    .slider {
+        margin-top: -150px;
+    }
+    li.nav-item {
+        margin: 0 20px;
+    }
 }
+@media screen and (max-width: 430px) {
+    .nav-link {
+        font-size: 20px;
+    }
+    li.nav-item {
+        margin: 0 10px;
+    }
+    .slider_img {
+        transform: scale(0.35);
+    }
+    .slider {
+        margin-top: -200px;
+    }
+    :root {
+        --offset_x: 112.5px;
+        --offset_z: 75px;
+        --deg: 7.5deg;
+    }
+}
+
 @media screen and (max-width: 400px) {
     .img.first {
         transform: rotatez(20deg) scale(1.7) translatex(-30px);
@@ -811,10 +917,19 @@ textarea::placeholder {
         width: calc(100% - 70px);
         height: 2px;
     }
+    .company-name {
+        font-size: 10px;
+    }
+    .icons a i {
+        font-size: 15px;
+    }
 }
 
 @media screen and (max-width: 300px) {
     .email {
         font-size: 9px;
+    }
+    .nav-link {
+        font-size: 15px;
     }
 }
